@@ -1,11 +1,12 @@
 package com.crime.Bean;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Criminal {
 	private int criminal_id;
 	private String name;
 	private String mobile;
-	private Date dob;
+	private LocalDate dob;
 	private String identification_marks;
 	private String city;
 	private int crime_id;
@@ -13,7 +14,7 @@ public class Criminal {
 	{
 		
 	}
-	public Criminal(String name,String mobile,Date dob,String identification_marks,String city,int crime_id)
+	public Criminal(String name,String mobile,LocalDate dob,String identification_marks,String city,int crime_id)
 	{
 		this.name=name;
 		this.mobile=mobile;
@@ -40,10 +41,10 @@ public class Criminal {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 	public String getIdentification_marks() {

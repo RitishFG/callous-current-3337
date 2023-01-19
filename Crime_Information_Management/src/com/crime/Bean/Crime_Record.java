@@ -1,10 +1,11 @@
 package com.crime.Bean;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Crime_Record {
 	private int cid;
 	private int type;
-	private Date date;
+	private LocalDate date;
 	private String victim;
 	private String victim_mobile;
 	private String status;
@@ -15,7 +16,7 @@ public class Crime_Record {
 	{
 		
 	}
-	public Crime_Record(int type,Date date,String victim,String victim_mobile,String suspect,String description)
+	public Crime_Record(int type,LocalDate date,String victim,String victim_mobile,String suspect,String description)
 	{
 		this.type=type;
 		this.date=date;
@@ -37,10 +38,10 @@ public class Crime_Record {
 	public void setType(int type) {
 		this.type = type;
 	}
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public String getVictim() {

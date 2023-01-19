@@ -54,7 +54,7 @@ public class AdminDaoImpl implements AdminDao{
 			else
 			{
 //				data inconsistent to store in the station table
-				throw new StationException("Station data cannot be inserted with currect values");
+				throw new StationException("Station data cannot be inserted with currect inconsistent values");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

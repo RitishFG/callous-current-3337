@@ -10,7 +10,7 @@ import com.crime.dao.CriminalDaoImpl;
 
 public class AddNewCriminalRecord {
 
-	public static void main(String[] args) {
+	public static void addCriminal() {
 		Scanner sc=new Scanner(System.in);
 //		Taking input from user
 		System.out.println("Enter Criminal Name : ");
@@ -20,8 +20,9 @@ public class AddNewCriminalRecord {
 		System.out.println("Enter Date of Birth : ");
 		String date=sc.next();
 		LocalDate ld=LocalDate.parse(date);
+		sc.nextLine();
 		System.out.println("Enter Identification marks : ");
-		String marks=sc.next();
+		String marks=sc.nextLine();
 		System.out.println("Enter City : ");
 		String city=sc.next();
 		System.out.println("Enter Crime ID : ");

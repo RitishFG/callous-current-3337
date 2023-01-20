@@ -9,7 +9,7 @@ import com.crime.dao.CriminalDaoImpl;
 
 public class GetCriminalRecordById {
 
-	public static void main(String[] args) {
+	public static void viewCriminalById() {
 		Scanner sc=new Scanner(System.in);
 //		Taking input from user
 		System.out.println("Enter Criminal ID : ");

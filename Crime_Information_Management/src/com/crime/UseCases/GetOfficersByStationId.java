@@ -11,7 +11,7 @@ import com.crime.dao.AdminDaoImpl;
 
 public class GetOfficersByStationId {
 
-	public static void main(String[] args) {
+	public static void getOfficerByStation() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Station ID : ");
 		int id=sc.nextInt();

@@ -9,7 +9,7 @@ import com.crime.dao.CriminalDaoImpl;
 
 public class GetAllCriminalRecords {
 
-	public static void main(String[] args) {
+	public static void getAllRecords() {
 		CriminalDao cd=new CriminalDaoImpl();
 		try {
 //			calling required method

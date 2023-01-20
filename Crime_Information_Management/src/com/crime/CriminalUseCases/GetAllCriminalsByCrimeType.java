@@ -10,7 +10,7 @@ import com.crime.dao.CriminalDaoImpl;
 
 public class GetAllCriminalsByCrimeType {
 
-	public static void main(String[] args) {
+	public static void viewCriminalsByCrimeType() {
 		Scanner sc=new Scanner(System.in);
 //		Taking input from user
 		System.out.println("Enter Crime Type ID : ");

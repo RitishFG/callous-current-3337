@@ -9,7 +9,7 @@ import com.crime.dao.AdminDaoImpl;
 
 public class AssignCase {
 
-	public static void main(String[] args) {
+	public static void assignCase() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter Case ID : ");
 		int case_id=sc.nextInt();

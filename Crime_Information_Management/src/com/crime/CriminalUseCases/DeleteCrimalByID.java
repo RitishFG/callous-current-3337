@@ -8,7 +8,7 @@ import com.crime.dao.CriminalDaoImpl;
 
 public class DeleteCrimalByID {
 
-	public static void main(String[] args) {
+	public static void deleteCriminal() {
 		Scanner sc=new Scanner(System.in);
 //		taking input from user
 		System.out.println("Enter Criminal ID : ");

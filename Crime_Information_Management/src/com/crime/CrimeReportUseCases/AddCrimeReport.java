@@ -10,7 +10,7 @@ import com.crime.dao.CrimeReportDaoImpl;
 
 public class AddCrimeReport {
 
-	public static void main(String[] args) {
+	public static void addReport() {
 		Scanner sc=new Scanner(System.in);
 //		Taking input from user
 		System.out.println("Enter Crime Type ID : ");
@@ -24,8 +24,9 @@ public class AddCrimeReport {
 		String mobile=sc.next();
 		System.out.println("Enter Suspect Name : ");
 		String suspect=sc.next();
+		sc.nextLine();
 		System.out.println("Enter Description : ");
-		String desc=sc.next();
+		String desc=sc.nextLine();
 		
 //		Creating object of crime record and setting values
 		Crime_Record cr=new Crime_Record();

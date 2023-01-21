@@ -127,6 +127,7 @@ public class AdminDaoImpl implements AdminDao{
 			{
 //				creating empty officer object and setting values
 				Officer o=new Officer();
+//				o.setOfficer_id(rs.getInt("officer_id"));
 				o.setFirst_name(rs.getString("first_name"));
 				o.setGender(rs.getString("gender"));
 				o.setLast_name(rs.getString("last_name"));

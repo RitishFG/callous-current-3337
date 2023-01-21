@@ -13,19 +13,19 @@ public class AddNewCriminalRecord {
 	public static void addCriminal() {
 		Scanner sc=new Scanner(System.in);
 //		Taking input from user
-		System.out.println("Enter Criminal Name : ");
+		System.out.println("Enter Criminal Name        : ");
 		String name=sc.next();
-		System.out.println("Enter Mobile Number : ");
+		System.out.println("Enter Mobile Number        : ");
 		String mobile=sc.next();
-		System.out.println("Enter Date of Birth : ");
+		System.out.println("Enter Date of Birth        : ");
 		String date=sc.next();
 		LocalDate ld=LocalDate.parse(date);
 		sc.nextLine();
 		System.out.println("Enter Identification marks : ");
 		String marks=sc.nextLine();
-		System.out.println("Enter City : ");
+		System.out.println("Enter City                 : ");
 		String city=sc.next();
-		System.out.println("Enter Crime ID : ");
+		System.out.println("Enter Crime ID             : ");
 		int id=sc.nextInt();
 		
 //		Creating criminal object and assigning values

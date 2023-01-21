@@ -19,7 +19,16 @@ public class GetOfficersByStationId {
 		AdminDao ad=new AdminDaoImpl();
 		try {
 			List<Officer>list=ad.getOfficerByStationId(id);
-			list.forEach(o->System.out.println(o));
+			System.out.println();
+			System.out.println("*------------------------------------*");
+			list.forEach(o->{
+				System.out.println("ID         : "+o.getOfficer_id());
+				System.out.println("Name       : "+o.getFirst_name()+" "+o.getLast_name());
+				System.out.println("Gender     : "+o.getGender());
+				System.out.println("Mobile     : "+o.getMobile());
+				System.out.println("Station ID : "+o.getStation_id());
+				System.out.println("*------------------------------------*");
+			});
 		} catch (OfficerException e) {
 			System.out.println(e.getMessage());
 		}

@@ -17,10 +17,13 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 	@Override
 	public String addCrimeRecord(Crime_Record cr) throws CaseException {
 		String message="";
+//		getting connection
 		Connection conn=DBUtil.getConnection();
+//		query to perform required operation
 		String query="insert into crime_record values(null,?,?,?,?,?,null,?,?)";
 		try {
 			PreparedStatement ps=conn.prepareStatement(query);
+//			setting values
 			ps.setInt(1, cr.getType());
 			ps.setDate(2, java.sql.Date.valueOf(cr.getDate()));
 			ps.setString(3,cr.getVictim());
@@ -31,10 +34,12 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			int x=ps.executeUpdate();
 			if(x>0)
 			{
+//				inserted
 				message="Crime Report has been added Successfully!";
 			}
 			else
 			{
+//				error need to throw exception
 				throw new CaseException("Crime Report cannot be added with current inconsistent data");
 			}
 		} catch (SQLException e) {
@@ -57,15 +62,19 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 	@Override
 	public Crime_Record getCrimeRecordByID(int id) throws CaseException {
 		Crime_Record cr=null;
+//		getting connection
 		Connection conn=DBUtil.getConnection();
+//		query to perform requried operation
 		String query="select * from crime_record where cid=?";
 		try {
 			PreparedStatement ps=conn.prepareStatement(query);
+//			setting value
 			ps.setInt(1, id);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next())
 			{
 				cr=new Crime_Record();
+//				storing value in object if data exists
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
 				cr.setDescription(rs.getString("description"));
@@ -78,6 +87,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			}
 			else
 			{
+//				data does not exist need to throw exception
 				throw new CaseException("No Crime Record Available with Case ID : "+id);
 			}
 		} catch (SQLException e) {
@@ -98,19 +108,24 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 	@Override
 	public String closeCrimeRecord(int id) throws CaseException {
 		String message="";
+//		getting connection
 		Connection conn=DBUtil.getConnection();
+//		query to perform required operation
 		String query="update crime_record set status=? where cid=?";
 		try {
 			PreparedStatement ps=conn.prepareStatement(query);
+//			setting values
 			ps.setString(1, "closed");
 			ps.setInt(2, id);
 			int x=ps.executeUpdate();
 			if(x>0)
 			{
+//				success message
 				message="Crime Record with ID : "+id+" has been closed";
 			}
 			else
 			{
+//				error in statement need to throw exception
 				throw new CaseException("Invalid Crime Report ID : "+id);
 			}
 		} catch (SQLException e) {
@@ -139,6 +154,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
+//				creating new object and assigning values to it
 				Crime_Record cr=new Crime_Record();
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
@@ -149,10 +165,12 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 				cr.setType(rs.getInt("type"));
 				cr.setVictim(rs.getString("victim"));
 				cr.setVictim_mobile(rs.getString("victim_mobile"));
+//				adding object to list
 				list.add(cr);
 			}
 			if(list.isEmpty())
 			{
+//				list empty means no record, need to throw exception
 				throw new CaseException("No Crime Reports Available in Records");
 			}
 		} catch (SQLException e) {
@@ -182,6 +200,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
+//				creating new object, assigning values and storing in list to return
 				Crime_Record cr=new Crime_Record();
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
@@ -196,6 +215,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			}
 			if(list.isEmpty())
 			{
+//				no record, need to throw excpetion
 				throw new CaseException("No Open record available");
 			}
 		} catch (SQLException e) {
@@ -225,6 +245,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
+//				creating new object, assigning values and storing in list to return
 				Crime_Record cr=new Crime_Record();
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
@@ -239,6 +260,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			}
 			if(list.isEmpty())
 			{
+//				no record, need to throw exception
 				throw new CaseException("No Closed record available");
 			}
 		} catch (SQLException e) {
@@ -268,6 +290,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
+//				creating new object, assigning values and storing in list to return
 				Crime_Record cr=new Crime_Record();
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
@@ -282,6 +305,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			}
 			if(list.isEmpty())
 			{
+//				no record need to throw exception
 				throw new CaseException("No Record Available for Crime Type : "+type);
 			}
 		} catch (SQLException e) {
@@ -312,6 +336,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
+//				creating new object, assigning values and storing in list to return
 				Crime_Record cr=new Crime_Record();
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
@@ -326,6 +351,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			}
 			if(list.isEmpty())
 			{
+//				no record need to throw exception
 				throw new CaseException("No Open Record Available alloted to Officer ID : "+officer_id);
 			}
 		} catch (SQLException e) {
@@ -355,6 +381,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
+//				creating new object, assigning values and storing in list to return
 				Crime_Record cr=new Crime_Record();
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
@@ -369,6 +396,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			}
 			if(list.isEmpty())
 			{
+//				no record, need to throw exception
 				throw new CaseException("No Open Record Available alloted to Officer ID : "+officer_id);
 			}
 		} catch (SQLException e) {
@@ -398,6 +426,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
+//				creating new object, assigning values and storing in list to return
 				Crime_Record cr=new Crime_Record();
 				cr.setCid(rs.getInt("cid"));
 				cr.setDate(rs.getDate("date").toLocalDate());
@@ -412,6 +441,7 @@ public class CrimeReportDaoImpl implements CrimeReportDao{
 			}
 			if(list.isEmpty())
 			{
+//				no record, need to throw exception
 				throw new CaseException("No Record Available");
 			}
 		} catch (SQLException e) {

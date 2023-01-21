@@ -10,7 +10,7 @@ import com.crime.dao.AdminDaoImpl;
 public class AddStationCase {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter Staion Name : ");
+		System.out.println("Enter Staion Name     : ");
 		String name=sc.nextLine();
 		System.out.println("Enter Station Address : ");
 		String address=sc.nextLine();

@@ -1,6 +1,8 @@
 package com.crime.UseCases;
 
 import java.util.Scanner;
+
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.AdminDao;
 import com.crime.dao.AdminDaoImpl;
 
@@ -16,7 +18,7 @@ public class AdminLoginCase {
 		AdminDao ad=new AdminDaoImpl();
 		try {
 			ad.adminLogin(username, password);
-			System.out.println("Login Successfull!");
+			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+"Login Successfull!"+ConsoleColors.RESET);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

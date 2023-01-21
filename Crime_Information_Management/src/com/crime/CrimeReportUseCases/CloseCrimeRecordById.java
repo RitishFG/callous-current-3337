@@ -8,7 +8,7 @@ import com.crime.dao.CrimeReportDaoImpl;
 
 public class CloseCrimeRecordById {
 
-	public static void main(String[] args) {
+	public static void closeReport() {
 		Scanner sc=new Scanner(System.in);
 //		Taking input from user
 		System.out.println("Enter Record ID : ");

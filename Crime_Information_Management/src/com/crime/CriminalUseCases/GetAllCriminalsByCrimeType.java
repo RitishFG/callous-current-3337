@@ -20,9 +20,17 @@ public class GetAllCriminalsByCrimeType {
 		try {
 //			Calling required method
 			List<Criminal>list=cd.getCriminalRecordsCrimeTypeWise(type);
+			System.out.println();
+			System.out.println("*----------------------------------------------*");
 			for(Criminal c:list)
 			{
-				System.out.println(c);
+				System.out.println("ID                   : "+c.getCriminal_id());
+				System.out.println("Name                 : "+c.getName());
+				System.out.println("Mobile               : "+c.getMobile());
+				System.out.println("Identification Marks : "+c.getIdentification_marks());
+				System.out.println("City                 : "+c.getCity());
+				System.out.println("Crime Report ID      : "+c.getCrime_id());
+				System.out.println("*----------------------------------------------*");
 			}
 		} catch (CriminalException e) {
 			System.out.println(e.getMessage());

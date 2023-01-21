@@ -11,7 +11,7 @@ public class AssignCase {
 
 	public static void assignCase() {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter Case ID : ");
+		System.out.println("Enter Case ID    : ");
 		int case_id=sc.nextInt();
 		System.out.println("Enter Officer ID : ");
 		int officer_id=sc.nextInt();

@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.crime.Bean.Officer;
 import com.crime.Exception.OfficerException;
 import com.crime.Exception.StationException;
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.AdminDao;
 import com.crime.dao.AdminDaoImpl;
 
@@ -20,6 +21,7 @@ public class GetOfficersByStationId {
 		try {
 			List<Officer>list=ad.getOfficerByStationId(id);
 			System.out.println();
+			System.out.println(ConsoleColors.BLACK_UNDERLINED+"List of Officers By Station ID"+ConsoleColors.RESET);
 			System.out.println("*------------------------------------*");
 			list.forEach(o->{
 				System.out.println("ID         : "+o.getOfficer_id());
@@ -30,7 +32,7 @@ public class GetOfficersByStationId {
 				System.out.println("*------------------------------------*");
 			});
 		} catch (OfficerException e) {
-			System.out.println(e.getMessage());
+			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET);
 		}
 	}
 

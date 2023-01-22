@@ -3,6 +3,7 @@ package com.crime.CriminalUseCases;
 import java.util.Scanner;
 
 import com.crime.Exception.CriminalException;
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.CriminalDao;
 import com.crime.dao.CriminalDaoImpl;
 
@@ -18,9 +19,9 @@ public class DeleteCrimalByID {
 		try {
 //			calling required method
 			String message=cd.deleteCriminalRecord(id);
-			System.out.println(message);
+			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+message+ConsoleColors.RESET);
 		} catch (CriminalException e) {
-			System.out.println(e.getMessage());
+			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET);
 		}
 
 	}

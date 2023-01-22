@@ -1,0 +1,44 @@
+create table station(
+    -> station_id int primary key auto_increment,
+    -> station_name varchar(20) not null,
+    -> station_address varchar(20) not null);
+alter table station auto_increment=1;
+
+create table officer(
+    -> officer_id int primary key auto_increment,
+    -> first_name varchar(10) not null,
+    -> last_name varchar(10) not null,
+    -> gender varchar(6),
+    -> mobile varchar(10) not null unique,
+    -> station_id int,
+    -> foreign key(station_id) references station(station_id) on delete set null on update cascade);
+alter table officer auto_increment=100;
+
+create table crime_type(
+    -> id int primary key,
+    -> description varchar(20) not null,
+    -> section varchar(10) not null);
+
+create table crime_record(
+    -> cid int primary key auto_increment,
+    -> type int not null,
+    -> date date,
+    -> victim varchar(10) not null,
+    -> victim_mobile varchar(10) not null unique,
+    -> status varchar(6) not null,
+    -> officer_alloted int,
+    -> suspect varchar(10) not null,
+    -> foreign key(type) references crime_type(id) on delete set null on update cascade,
+    -> description varchar(100) not null,
+    -> foreign key(officer_alloted) references officer(officer_id) on delete set null on update cascade);
+alter table crime_record auto_increment=1000;
+
+create table criminal_record(
+    -> criminal_id int primary key auto_increment,
+    -> name varchar(10) not null,
+    -> mobile varchar(10) not null unique,
+    -> dob date,
+    -> identification_marks varchar(20),
+    -> city varchar(10),
+    -> crime_id int unique,
+    -> foreign key(crime_id) references crime_record(cid) on delete set null on update cascade);

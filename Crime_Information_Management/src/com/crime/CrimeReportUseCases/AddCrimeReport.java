@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.crime.Bean.Crime_Record;
 import com.crime.Exception.CaseException;
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.CrimeReportDao;
 import com.crime.dao.CrimeReportDaoImpl;
 
@@ -41,9 +42,9 @@ public class AddCrimeReport {
 		try {
 //			calling required method
 			String message=crd.addCrimeRecord(cr);
-			System.out.println(message);
+			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+message+ConsoleColors.RESET);
 		} catch (CaseException e) {
-			System.out.println(e.getMessage());
+			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET);
 		}
 
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.crime.Bean.Crime_Record;
 import com.crime.Exception.CaseException;
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.CrimeReportDao;
 import com.crime.dao.CrimeReportDaoImpl;
 
@@ -15,6 +16,7 @@ public class GetAllOpenCrimeRecords {
 //			Calling required method
 			List<Crime_Record>list=crd.getAllOpenCrimeRecords();
 			System.out.println();
+			System.out.println(ConsoleColors.BLACK_UNDERLINED+"List of All Open Crime Reports"+ConsoleColors.RESET);
 			System.out.println("*-----------------------------------------*");
 			for(Crime_Record cr:list)
 			{
@@ -30,7 +32,7 @@ public class GetAllOpenCrimeRecords {
 				System.out.println("*-----------------------------------------*");
 			}
 		} catch (CaseException e) {
-			System.out.println(e.getMessage());
+			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET);
 		}
 
 	}

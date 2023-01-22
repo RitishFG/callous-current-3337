@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.crime.Bean.Crime_Record;
 import com.crime.Exception.CaseException;
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.CrimeReportDao;
 import com.crime.dao.CrimeReportDaoImpl;
 
@@ -20,6 +21,7 @@ public class GetCrimeRecordById {
 //			calling required method
 			Crime_Record cr=crd.getCrimeRecordByID(id);
 			System.out.println();
+			System.out.println(ConsoleColors.BLACK_UNDERLINED+"Crime Report By ID"+ConsoleColors.RESET);
 			System.out.println("*-----------------------------------------*");
 			System.out.println("ID              : "+cr.getCid());
 			System.out.println("Type            : "+cr.getType());
@@ -32,7 +34,7 @@ public class GetCrimeRecordById {
 			System.out.println("Description     : "+cr.getDescription());
 			System.out.println("*-----------------------------------------*");
 		} catch (CaseException e) {
-			System.out.println(e.getMessage());
+			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET);
 		}
 
 	}

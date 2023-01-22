@@ -96,7 +96,7 @@ public class Main {
 				}
 				if(loop==false)
 				{
-					System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+"Quiting Application");
+					System.out.println(ConsoleColors.YELLOW_BACKGROUND_BRIGHT+ConsoleColors.BLUE_BOLD_BRIGHT+"Quiting Application");
 					System.out.println("Thank You!"+ConsoleColors.RESET);
 					System.exit(0);
 				}
@@ -308,6 +308,7 @@ public class Main {
 			List<Officer>list=ad.getAllOfficerDetails();
 			System.out.println();
 //			if table not empty then printing all the officer records
+			System.out.println(ConsoleColors.BLACK_UNDERLINED+"List of All Officers"+ConsoleColors.RESET);
 			System.out.println("*------------------------------------*");
 			list.forEach(o->{
 				System.out.println("ID         : "+o.getOfficer_id());
@@ -333,6 +334,7 @@ public class Main {
 			Officer o=ad.getOfficerDetailsById(id);
 //			printing officer details if id exists
 			System.out.println();
+			System.out.println(ConsoleColors.BLACK_UNDERLINED+"Officer Details"+ConsoleColors.RESET);
 			System.out.println("*------------------------------------*");
 			System.out.println("ID         : "+o.getOfficer_id());
 			System.out.println("Name       : "+o.getFirst_name()+" "+o.getLast_name());

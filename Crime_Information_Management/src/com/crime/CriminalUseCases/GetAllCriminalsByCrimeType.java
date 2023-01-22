@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.crime.Bean.Criminal;
 import com.crime.Exception.CriminalException;
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.CriminalDao;
 import com.crime.dao.CriminalDaoImpl;
 
@@ -21,6 +22,7 @@ public class GetAllCriminalsByCrimeType {
 //			Calling required method
 			List<Criminal>list=cd.getCriminalRecordsCrimeTypeWise(type);
 			System.out.println();
+			System.out.println(ConsoleColors.BLACK_UNDERLINED+"List of All Criminals By Crime Type"+ConsoleColors.RESET);
 			System.out.println("*----------------------------------------------*");
 			for(Criminal c:list)
 			{
@@ -33,7 +35,7 @@ public class GetAllCriminalsByCrimeType {
 				System.out.println("*----------------------------------------------*");
 			}
 		} catch (CriminalException e) {
-			System.out.println(e.getMessage());
+			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET);
 		}
 
 	}

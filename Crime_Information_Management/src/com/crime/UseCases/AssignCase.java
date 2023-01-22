@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.crime.Exception.CaseException;
 import com.crime.Exception.OfficerException;
+import com.crime.colors.ConsoleColors;
 import com.crime.dao.AdminDao;
 import com.crime.dao.AdminDaoImpl;
 
@@ -19,9 +20,9 @@ public class AssignCase {
 		AdminDao ad=new AdminDaoImpl();
 		try {
 			String message=ad.assignCaseToOfficer(case_id, officer_id);
-			System.out.println(message);
+			System.out.println(ConsoleColors.GREEN_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+message+ConsoleColors.RESET);
 		} catch (OfficerException | CaseException e) {
-			System.out.println(e.getMessage()); 
+			System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT+ConsoleColors.WHITE_BOLD_BRIGHT+e.getMessage()+ConsoleColors.RESET); 
 		}
 	}
 
